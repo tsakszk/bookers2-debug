@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   end
   root 'home#top'
   get 'home/about'
+  post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
+  get 'relationships/follow_index', as: 'follow_index'
+  get 'relationships/followers_index', as: 'followers_index'
 end
