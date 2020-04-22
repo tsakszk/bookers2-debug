@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	@books = @user.books
   	@book = Book.new #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
-  end
+end
 
   def index
 	@user = current_user
@@ -24,6 +24,14 @@ class UsersController < ApplicationController
 	else
   		render :edit
   	end
+  end
+
+  def follows
+	@users = User.all
+  end
+
+  def followers
+	@users = User.all
   end
 
   private
